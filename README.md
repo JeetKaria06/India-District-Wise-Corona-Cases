@@ -32,5 +32,6 @@ Run below and suppose you want map in ```light``` mode then define --mode to lig
 ```
 python covid-india-map.py --mode light
 ```
-
+Map Generated will be as below:
+![ ] (https://github.com/JeetKaria06/India-District-Wise-Corona-Cases/blob/master/Images/lightMode.png)
 
