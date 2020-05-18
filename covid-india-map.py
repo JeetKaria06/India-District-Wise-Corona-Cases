@@ -15,7 +15,6 @@ if args['mode']!='dark' and args['mode']!='light':
     exit()
 print("[INFO] Fetching Data...")
 response = requests.get("https://www.grainmart.in/news/covid-19-coronavirus-india-state-and-district-wise-tally/")
-locationFinder = 'https://nominatim.openstreetmap.org/search?format=json&polygon=0&addressdetails=0&q='
 
 soup = BeautifulSoup(response.text, 'lxml')
 
