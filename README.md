@@ -28,7 +28,7 @@ python covid-data.py
 
 # Execution
 Now comes the part when you will be able to generate the interactive map of the India in dark or light mode (according to one's choice).
-Run below and suppose you want map in ```light``` mode then define --mode to light as shown:
+Run below and suppose you want map in ```light``` mode then define ```--mode``` to ```light``` as shown:
 ```
 python covid-india-map.py --mode light
 ```
