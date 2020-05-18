@@ -41,4 +41,10 @@ You can click the ```Active Case``` button again to disable it and click the ```
 Similarly clicking ```Cured Case``` button again to disable it and click the ```Death Case``` button to enable it as shown below:
 ![Output2](https://github.com/JeetKaria06/India-District-Wise-Corona-Cases/blob/master/Images/lightModeDeaths.png)
 
+If you want to see the map in ```dark``` mode then specify ```--mode``` to ```dark``` as shown:
+```
+python covid-india-map.py --mode dark
+```
+Below is shown how to toggle between active, cured and death cases in the dark mode map:
+![Output3](https://github.com/JeetKaria06/India-District-Wise-Corona-Cases/blob/master/Images/darkMode.gif)
 
