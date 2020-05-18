@@ -118,7 +118,7 @@ fig.add_trace(go.Scattermapbox(
 fig.update_layout(
     hovermode='closest',
     mapbox=dict(
-        accesstoken='pk.eyJ1IjoiamVldC1rYXJpYSIsImEiOiJja2Fhbmc1ZXEwdTZlMzJzOTdkenJzcWdjIn0.n0fq6ME_vDAMSv-c2VQlow',
+        accesstoken=open('public_access_token.txt', 'r').read(),
         bearing=0,
         center=go.layout.mapbox.Center(
             lat=20.5937,
