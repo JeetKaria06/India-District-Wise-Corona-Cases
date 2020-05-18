@@ -38,5 +38,7 @@ Map Generated will be as below:
 You can click the ```Active Case``` button again to disable it and click the ```Cured Case``` button to enable it as shown below:
 ![Output1](https://github.com/JeetKaria06/India-District-Wise-Corona-Cases/blob/master/Images/lightModeCured.png)
 
+Similarly clicking ```Cured Case``` button again to disable it and click the ```Death Case``` button to enable it as shown below:
+![Output2](https://github.com/JeetKaria06/India-District-Wise-Corona-Cases/blob/master/Images/lightModeDeaths.png)
 
 
