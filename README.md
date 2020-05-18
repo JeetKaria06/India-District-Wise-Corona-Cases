@@ -35,3 +35,6 @@ python covid-india-map.py --mode light
 Map Generated will be as below:
 ![Output](https://github.com/JeetKaria06/India-District-Wise-Corona-Cases/blob/master/Images/lightMode.png)
 
+You can click the ```Active Case``` button again to disable it and click the ```Cured Case``` button to enable it as shown below:
+
+
