@@ -15,3 +15,9 @@ It will show the map of the India (even in dark mode) and shows corona case (act
 * Plotting it on a map with suitable labels (i.e. active, cured and deaths)
 
 # Requirements
+Before running main script, you will have install the necessary modules in order to run the main script. Run below to install all of it
+```
+pip install -r requirements.txt
+```
+
+# Execution
