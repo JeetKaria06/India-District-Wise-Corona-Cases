@@ -19,7 +19,7 @@ soup = soup.find_all('div', {'class':'skgm-states'})
 
 # Generating CSV File
 
-with open('states.csv', 'w', newline='') as csvfile:
+with open('district-wise-centroids.csv', 'w', newline='') as csvfile:
     spamwriter = csv.writer(csvfile,quotechar=',', quoting=csv.QUOTE_MINIMAL)
     spamwriter.writerow(['State', 'District', 'Latitude', 'Longitude'])
     for state in soup:
