@@ -20,4 +20,17 @@ Before running main script, you will have install the necessary modules in order
 pip install -r requirements.txt
 ```
 
+# Data Generation
+Infected districts location data which includes latitudes and longitudes is generated and stored in ```district-wise-centroids.csv``` file. I have already generated the data in the .csv file, but you can generate new data using
+```
+python covid-data.py
+```
+
 # Execution
+Now comes the part when you will be able to generate the interactive map of the India in dark or light mode (according to one's choice).
+Run below and suppose you want map in ```light``` mode then define --mode to light as shown:
+```
+python covid-india-map.py --mode light
+```
+
+
