@@ -48,3 +48,7 @@ python covid-india-map.py --mode dark
 Below is shown how to toggle between active, cured and death cases in the dark mode map:
 ![Output3](https://github.com/JeetKaria06/India-District-Wise-Corona-Cases/blob/master/Images/darkMode.gif)
 
+![Output4](https://github.com/JeetKaria06/India-District-Wise-Corona-Cases/blob/master/Images/lightMode.gif)
+
+Feel free to contribute to make it more helpful to visualize the COVID-19.
+
