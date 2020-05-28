@@ -24,46 +24,40 @@ dfcovid = pd.DataFrame({'state':[], 'district':[], 'latitude':[], 'longitude':[]
 soup = soup.find_all('div', {'class':'skgm-states'})
 print()
 for state in soup:
-    stateData = state.find('div', {'class':'skgm-tr'}).text.strip().split(" ")
-    stateNameList = stateData[:-4]
-    stateName = ""
-    for i in range(0, len(stateNameList)):
-        stateName = stateName+stateNameList[i]+" "
-    stateName = stateName.strip()
+    stateData = state.find('div', {'class':'skgm-tr'}).find_all('div', {'class':'skgm-td'})
+    stateName = stateData[0].text.strip()
     covidData[stateName] = {}
 
     disData = state.find('div', {'class':'skgm-districts'}).find_all('div', {'class':'skgm-tr'})
     print("[INFO] "+stateName+" ...")
     for dist in disData:
-
-        soloDist = dist.text.strip().split(" ")
-        distList = soloDist[:-4]
-        distName = ''
-        for i in range(0, len(distList)):
-            distName = distName + distList[i] + ' '
-        distName = distName.strip()
+        distInfo = dist.find_all('div', {'class':'skgm-td'})
+        distName = distInfo[0].text.strip()
+        cured = distInfo[2].text.strip()
+        active = distInfo[3].text.strip()
+        deaths = distInfo[4].text.strip()
+        if int(active)<0:
+            active=0
+        if int(cured)<0:
+            cured=0
+        if int(deaths)<0:
+            deaths=0
 
         covidData[stateName][distName] = {}
-        if int(soloDist[-3]) < 0:
-            soloDist[-3]=0
-        if int(soloDist[-2]) < 0:
-            soloDist[-2]=0
-        if int(soloDist[-1]) < 0:
-            soloDist[-1]=0
-        covidData[stateName][distName]['cured'] =  soloDist[-3]
-        covidData[stateName][distName]['deaths'] = soloDist[-1]
-        covidData[stateName][distName]['active'] = soloDist[-2]
+        covidData[stateName][distName]['cured'] =  cured
+        covidData[stateName][distName]['deaths'] = deaths
+        covidData[stateName][distName]['active'] = active
 
         csv_file = csv.reader(open('district-wise-centroids.csv'), delimiter=',')
 
         # distInfo = []
         for row in csv_file:
             if row[0] == stateName and row[1] == distName:
-                distInfo = row
+                distLoc = row
         # print(distName)
-        dfcovid = dfcovid.append({'state':stateName, 'district':distName, 'latitude':float(distInfo[2]), 'longitude':float(distInfo[3]), 'situation':'cured', 'number':int(soloDist[-3])}, ignore_index=True)
-        dfcovid = dfcovid.append({'state':stateName, 'district':distName, 'latitude':float(distInfo[2]), 'longitude':float(distInfo[3]), 'situation':'deaths', 'number':int(soloDist[-1])}, ignore_index=True)
-        dfcovid = dfcovid.append({'state':stateName, 'district':distName, 'latitude':float(distInfo[2]), 'longitude':float(distInfo[3]), 'situation':'active', 'number':int(soloDist[-2])}, ignore_index=True)
+        dfcovid = dfcovid.append({'state':stateName, 'district':distName, 'latitude':float(distLoc[2]), 'longitude':float(distLoc[3]), 'situation':'cured', 'number':int(cured)}, ignore_index=True)
+        dfcovid = dfcovid.append({'state':stateName, 'district':distName, 'latitude':float(distLoc[2]), 'longitude':float(distLoc[3]), 'situation':'deaths', 'number':int(deaths)}, ignore_index=True)
+        dfcovid = dfcovid.append({'state':stateName, 'district':distName, 'latitude':float(distLoc[2]), 'longitude':float(distLoc[3]), 'situation':'active', 'number':int(active)}, ignore_index=True)
 
 print()
 print("[INFO] Loading Map... ")
